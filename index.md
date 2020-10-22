@@ -1,37 +1,37 @@
-## Welcome to GitHub Pages
+# Code for "Life-history traits inform population trends when assessing the conservation status of a declining tiger shark population"
 
-You can use the [editor on GitHub](https://github.com/cbrown5/shark-pop-trends/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Citation: [Brown CJ, Roff G. Life-history traits inform population trends when assessing the conservation status of a declining tiger shark population. Biological Conservation. 2019 Nov 1;239:108230.](https://www.sciencedirect.com/science/article/pii/S0006320719306020?casa_token=1MetIYRF2X4AAAAA:5JqOjGn4IdWHEpIy5Mou283nUip6WDWGFE4W0qAjzmXQBR-RdsC5o6MDuqa9Vo-3KAE2YBDb)
+([pre-print on biorxiv](https://www.biorxiv.org/content/10.1101/395509v4.full))
 
-### Markdown
+The paper fits Bayesian generalized additive models (using a random walk) and shows how we can relate the variance of the random walk (which controls its 'wiggiliness') to shark life-history traits.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+This repo includes code for the simulation study described in the above paper, core functions for fitting Bayesian GAMMs to the shark population data and a script that fits the models.
 
-```markdown
-Syntax highlighted code block
+Unfortunately we do not have a license to provide the data here, more details on the data are in the paper. The simulation-study script is stand-alone, and will run without any data (it generates it's own).
 
-# Header 1
-## Header 2
-### Header 3
+### Overview of the method
 
-- Bulleted
-- List
+![](conceptual-outline.jpg)
 
-1. Numbered
-2. List
+## Key scripts
 
-**Bold** and _Italic_ and `Code` text
+### sharks-functions.R
 
-[Link](url) and ![Image](src)
-```
+Has functions to fit the GAMMs to spatio-temporal population data.
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+### simulation-study.R
 
-### Jekyll Themes
+Simulates data and fits models to it. This will run without any additional data files
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/cbrown5/shark-pop-trends/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+### sharks-effects-of-priors-V4-AR1.R
 
-### Support or Contact
+Fits the AR1 model described in the paper. The model fitting is actually done within a function (see sharks-functions.R). This script loops over different subsets of the data to explore how data quantity affects fits and trend estimates.
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+### sharks-GAM-trends-v2.R
+
+Fits the GAMMs described in the paper. Similar to above, but not Bayesian.
+
+### plot-gam-results-v2.R
+
+Makes the plots for the GAM fits.
