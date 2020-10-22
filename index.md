@@ -12,7 +12,7 @@ Unfortunately we do not have a license to provide the data here, more details on
 
 ### Overview of the method
 
-![](conceptual-outline.jpg)
+![](https://raw.githubusercontent.com/cbrown5/shark-pop-trends/main/conceptual-outline.jpg)
 
 ## Key scripts
 
